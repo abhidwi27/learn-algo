@@ -1,0 +1,79 @@
+package algo;
+
+public class PrintSpiralMatrix {
+	
+	private static int [][] a;
+	private static int MAX;
+	private static int currentCount = 1;
+	private static int leftToRightRowIdx;
+	private static int leftToRightStartColIdx;
+	private static int leftToRightEndColIdx;
+	private static int rightToLeftRowIdx;
+	private static int rightToLeftStartColIdx;
+	private static int rightToLeftEndColIdx;
+	private static int topToBottomColIdx;
+	private static int topToBottomStartRowIdx;
+	private static int topToBottomEndRowIdx;
+	private static int bottomToTopColIdx;
+	private static int bottomToTopStartRowIdx;
+	private static int bottomToTopEndRowIdx;
+	
+	
+	
+	public PrintSpiralMatrix(int n){
+		MAX = n*n;
+		leftToRightRowIdx = 0;
+		leftToRightStartColIdx = 0;
+		leftToRightEndColIdx = n-1;
+		topToBottomColIdx = n-1;
+		
+		
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		PrintSpiralMatrix p = new PrintSpiralMatrix(4);
+		
+		while( currentCount <= MAX){
+			if(currentCount > MAX) break;
+			printHorizantalLeftToRight(leftToRightRowIdx, leftToRightStartColIdx, leftToRightEndColIdx, currentCount);
+			if(currentCount > MAX) break;
+			printVerticalTopToBottom(topToBottomColIdx, topToBottomStartRowIdx,topToBottomEndRowIdx, currentCount);
+			if(currentCount > MAX) break;
+			printHorizontalLeftToRight(rightToLeftRowIdx, rightToLeftStartColIdx, rightToLeftEndColIdx, currentCount);
+			if(currentCount > MAX) break;
+			printVerticalBottomToTop(bottomToTopColIdx, bottomToTopStartRowIdx, bottomToTopEndRowIdx, currentCount);
+		}
+	}
+	
+	private static void printHorizantalLeftToRight(int leftToRightRowIdx, int leftToRightStartColIdx, int leftToRightEndColIdx, int number){
+		for(int col=leftToRightStartColIdx; col<= leftToRightStartColIdx; col++){
+			a[leftToRightRowIdx][col] = number;
+			number++;
+		}
+		currentCount = number;
+		leftToRightRowIdx = 	leftToRightRowIdx - 1;
+		leftToRightStartColIdx = leftToRightStartColIdx + 1;
+		leftToRightEndColIdx = leftToRightEndColIdx - 1;
+		
+		
+	}
+	
+	private static void printVerticalTopToBottom(int topToBottomColIdx, int topToBottomStartRowIdx, int topToBottomEndRowIdx, int number){
+		for(int row=topToBottomStartRowIdx; row<= topToBottomEndRowIdx; row++){
+			a[topToBottomColIdx][row] = number;
+			number++;
+		}
+		currentCount = number;
+		rowIdx = endRowIdx;
+		
+	}
+	
+	private static void printHorizontalLeftToRight(int rowIdx, int startColIdx, int endColIdx, int number){
+		
+	}
+	
+	private static void printVerticalBottomToTop(int colIdx, int startRowIdx, int endRowIdx, int number){
+		
+	}
+}

@@ -1,0 +1,74 @@
+package algo;
+
+public class PrintSpiralMatrix {
+	
+	private static int [][] a;
+	private static int MAX;
+	private static int currentCount = 1;
+	private static int rowIdx = 0;
+	private static int colIdx = 0;
+	private static int startColIdx;
+	private static int endColIdx;
+	private static int startRowIdx;
+	private static int endRowIdx;
+	private static boolean leftToRight;
+	private static boolean topToBottom;
+	//private static boolean topToBottomStartIndex;
+	
+	
+	public PrintSpiralMatrix(int n){
+		MAX = n*n;
+		rowIdx = 0;
+		colIdx = 0;
+		currentCount = 1;
+		a = new int [n-1][n-1];
+		startColIdx = 0;
+		endColIdx = n-1;
+		startRowIdx = 0;
+		endRowIdx = n;
+		leftToRight = true;
+		topToBottom = true;
+		
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		PrintSpiralMatrix p = new PrintSpiralMatrix(4);
+		
+		while( currentCount <= MAX){
+			printHorizantal(rowIdx, startColIdx, endColIdx, currentCount, leftToRight);
+			if(currentCount > MAX) break;
+			printVertical(colIdx, startRowIdx,endRowIdx, currentCount, topToBottom);
+			
+		}
+	}
+	
+	private static void printHorizantalLeftToRight(int rowIdx, int startColIdx, int endColIdx, int number){
+		for(int col=startColIdx; col<= endColIdx; col++){
+			a[rowIdx][col] = number;
+			number++;
+		}
+		currentCount = number;
+		colIdx = endColIdx;		
+		
+		
+	}
+	
+	private static void printVerticalTopToBottm(int colIdx, int startRowIdx, int endRowIdx, int number, boolean topToBottom ){
+		for(int row=startRowIdx; row<= endRowIdx; row++){
+			a[colIdx][row] = number;
+			number++;
+		}
+		currentCount = number;
+		rowIdx = endRowIdx;
+		
+	}
+	
+	private static void printHorizontalLeftToRight(int rowIdx, int startColIdx, int endColIdx, int number){
+		
+	}
+	
+	private static void printVerticalBottomToTop(int colIdx, int startRowIdx, int endRowIdx, int number){
+		
+	}
+}

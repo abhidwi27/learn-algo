@@ -1,0 +1,76 @@
+package algo;
+
+public class PrintSpiralMatrix {
+	
+	private static int [][] a;
+	private static int MAX;
+	private static int currentCount = 1;
+	private static int leftToRightRowIdx;
+	private static int leftToRightStartColIdx;
+	private static int leftToRightEndColIdx;
+	private static int rightToLeftRowIdx;
+	private static int rightToLeftStartColIdx;
+	private static int rightToLeftEndColIdx;
+	private static boolean topToBottomColIdx;
+	private static boolean topToBottomStartRowIdx;
+	private static boolean topToBottomEndRowIdx;
+	private static boolean bottomToTopColIdx;
+	private static boolean bottomToTopStartRowIdx;
+	private static boolean bottomToTopEndRowIdx;
+	
+	
+	
+	public PrintSpiralMatrix(int n){
+		MAX = n*n;
+		leftToRightRowIdx = 0;
+		leftToRightStartColIdx = 0;
+		leftToRightEndColIdx = n-1;
+		
+		
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		PrintSpiralMatrix p = new PrintSpiralMatrix(4);
+		
+		while( currentCount <= MAX){
+			if(currentCount > MAX) break;
+			printHorizantalLeftToRight(leftToRightRowIdx, startColIdx, endColIdx, currentCount);
+			if(currentCount > MAX) break;
+			printVerticalTopToBottom(colIdx, startRowIdx,endRowIdx, currentCount);
+			if(currentCount > MAX) break;
+			printHorizontalLeftToRight(rowIdx, startColIdx, endColIdx, currentCount);
+			if(currentCount > MAX) break;
+			printVerticalBottomToTop(colIdx, startRowIdx, endRowIdx, currentCount);
+		}
+	}
+	
+	private static void printHorizantalLeftToRight(int rowIdx, int startColIdx, int endColIdx, int number){
+		for(int col=startColIdx; col<= endColIdx; col++){
+			a[rowIdx][col] = number;
+			number++;
+		}
+		currentCount = number;
+		colIdx = endColIdx;		
+		
+		
+	}
+	
+	private static void printVerticalTopToBottom(int colIdx, int startRowIdx, int endRowIdx, int number){
+		for(int row=startRowIdx; row<= endRowIdx; row++){
+			a[colIdx][row] = number;
+			number++;
+		}
+		currentCount = number;
+		rowIdx = endRowIdx;
+		
+	}
+	
+	private static void printHorizontalLeftToRight(int rowIdx, int startColIdx, int endColIdx, int number){
+		
+	}
+	
+	private static void printVerticalBottomToTop(int colIdx, int startRowIdx, int endRowIdx, int number){
+		
+	}
+}
